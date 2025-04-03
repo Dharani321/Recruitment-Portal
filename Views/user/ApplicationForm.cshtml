@@ -1,0 +1,79 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <link rel="stylesheet" href="~/Styles/user/ApplicationForm.css">
+</head>
+<body style="font-family: Arial, sans-serif; background: linear-gradient(135deg, #74ebd5, #acb6e5); margin: 0; padding: 0px; width:100%">
+
+    <div style="background: white; padding:0px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); width: 500px;margin:0">
+        <h3 style="text-align: center; color: #333; font-size: 24px;">Application Form</h3>
+        <form id="submit-application-form" style="display: flex; flex-direction: column; gap: 15px;width:100%" enctype="multipart/form-data">
+            <!-- Prefilled fields -->
+            <div style="display: flex; flex-direction: column;margin:auto;width:100%">
+                <label for="job-id" style="font-weight: bold;display:none">Job ID</label>
+                <input type="hidden" id="job-id" name="JobID" readonly style="padding:0px; border: 1px solid #ccc; border-radius: 5px; background: #f9f9f9;width:100%">
+            </div>
+
+            <div style="display: flex; flex-direction: column; margin: auto ">
+                <label for="job-title" style="font-weight: bold;">Job Title</label>
+                <input type="text" id="job-title" name="Title" readonly style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; background: #f9f9f9;">
+            </div>
+            <div style="display: flex; flex-direction: column; margin: auto ">
+                <label for="job-category" style="font-weight: bold;">Job Category</label>
+                <input type="text" id="job-category" name="Category" readonly style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; background: #f9f9f9;">
+            </div>
+            <div style="display: flex; flex-direction: column; margin: auto ">
+                <label for="job-description" style="font-weight: bold;">Job Description</label>
+                <textarea id="job-description" name="Description" readonly style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; background: #f9f9f9; height: 80px;"></textarea>
+            </div>
+
+
+
+            <!-- Blank fields for user input -->
+           
+            <!-- New Experience Section -->
+            <div style="display: flex; flex-direction: column; margin: auto">
+                <label for="experience" style="font-weight: bold;">Work Experience</label>
+                <textarea id="experience" name="experience" rows="4" placeholder="Describe your work experience, including company name, position, and years of experience." required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+            </div>
+
+            <!-- New Education Section -->
+            <div class="education-section" style="display: flex; flex-direction: column;margin:auto">
+                <label for="education" style="font-weight: bold;">Educational Background</label>
+                <select id="education" name="education" required
+                        style="padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; background: #f9f9f9; cursor: pointer;">
+                    <option value="" disabled selected>Select Your Education Level</option>
+                    <option value="under_secondary" name="sub_education">Under Secondary</option>
+                    <option value="secondary" name="sub_education">Secondary</option>
+                    <option value="higher_secondary" name="sub_education">Higher Secondary</option>
+                    <option value="undergraduate" name="sub_education">Undergraduate</option>
+                    <option value="graduate" name="sub_education">Graduate</option>
+                    <option value="phd" name="sub_education">PhD</option>
+                    <option value="upper_phd" name="sub_education">Upper PhD</option>
+                </select>
+            </div>
+
+
+            <div style="display: flex; flex-direction: column; margin: auto ">
+                <label for="resume" style="font-weight: bold;">Resume</label>
+                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+            </div>
+            <div style="display: flex; flex-direction: column; margin: auto ">
+                <label for="message" style="font-weight: bold;">Why are you applying for this job?</label>
+                <textarea id="message" name="message" rows="5" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+            </div>
+            <button type="submit" style="background-color: #007BFF; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; text-transform: uppercase; font-weight: bold;">Submit Application</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="~/ProjectJS/user_js/JS/ApplicationForm.js"></script>
+
+</body>
+</html>

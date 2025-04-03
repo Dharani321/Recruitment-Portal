@@ -1,0 +1,130 @@
+﻿.signup-page .page-title {
+    text-align: center;
+    font-size: 28px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.signup-page .form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-page .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+    .signup-page .form-group label {
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+.signup-page .form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D59DD2;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #F6F1F6;
+    color: #5A3D8C;
+    font-size: 14px;
+}
+
+.signup-page .btnsignup {
+    background-color: #D59DD2;
+    color: white;
+    padding: 14px 24px;
+    border: 2px solid #D59DD2;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+    .signup-page .btnsignup:hover {
+        background-color: #b84e9a;
+        transform: scale(1.05);
+    }
+
+.signup-page .text-danger {
+    color: #ff4040;
+    font-size: 12px;
+}
+
+.signup-page .table-container {
+    margin-top: 40px;
+    background-color: #fafafa;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.signup-page table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+.signup-page th, .signup-page td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.signup-page th {
+    background-color: #D59DD2;
+    color: white;
+    font-size: 16px;
+}
+
+.signup-page tr:nth-child(even) {
+    background-color: #F6F1F6;
+}
+
+.signup-page tr:hover {
+    background-color: #f1f1f1;
+}
+
+.signup-page #usersTable img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    display: flex;
+    align-content: center;
+}
+#btn_ClearSignup {
+    background: none;
+    color: #4CAF50;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+    #btn_ClearSignup:hover {
+        color: #45a049;
+    }
+
+    #btn_ClearSignup:focus {
+        outline: none;
+    }
+
+    #btn_ClearSignup:active {
+        color: #3e8e41;
+    }
+

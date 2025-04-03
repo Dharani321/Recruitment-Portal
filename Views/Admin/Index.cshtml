@@ -1,0 +1,343 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+    <!-- Bootstrap Icons -->
+    @*<link href="~/Styles/Admin/Index.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="~/Styles/Admin/Index1.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+       
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color:lightgreen;
+            margin: 0;
+            padding: 0px;
+        }
+
+        /* Profile Container */
+        /* Profile Container */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        .navbar {
+            background-color: #0d3b27;
+            padding: 15px;
+        }
+
+            .navbar input {
+                border-radius: 20px;
+            }
+
+        .profile-card, .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007bff;
+        }
+
+        .edit-btn {
+            background: #ff6600;
+            color: white;
+            border-radius: 6px;
+            padding: 6px 12px;
+            border: none;
+        }
+
+            .edit-btn:hover {
+                background: #e65c00;
+            }
+
+        h5,h6 {
+            font-size: 18px;
+            font-weight: 600;
+            color: darkgreen;
+        }
+
+        p {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 0;
+        }
+        /* Information Card */
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .fw-bold {
+            font-size: 16px;
+            color: #1a1a1a;
+        }
+
+        .text-muted {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .edit-btn {
+            background: #ff7300;
+            color: white;
+            border-radius: 8px;
+            padding: 5px 10px;
+            border: none;
+            font-size: 14px;
+        }
+
+            .edit-btn i {
+                margin-right: 5px;
+            }
+        /* Profile Card Styling */
+        .profile-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        /* Personal Information Section */
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h6.fw-bold {
+            font-size: 18px;
+            color: #0f4534;
+            margin-bottom: 15px;
+        }
+
+        .text-muted {
+            font-size: 14px;
+            color: #697477;
+            font-weight: 500;
+        }
+
+        .fw-bold {
+            font-size: 16px;
+            color: #212529;
+            font-weight: 600;
+        }
+
+        /* Edit Button */
+        .edit-btn {
+            background: #ff7300;
+            color: white;
+            border-radius: 8px;
+            padding: 6px 12px;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background 0.3s;
+        }
+
+            .edit-btn:hover {
+                background: #e86600;
+            }
+
+            .edit-btn i {
+                font-size: 16px;
+            }
+        .navbar-custom {
+            width: 98%;
+            margin: auto; /* Centers the navbar */
+        }
+    </style>
+</head>
+<body style="background-color: rgba(220, 250, 220, 0.4); ">
+
+    <!-- Welcome Banner -->
+    <!-- Welcome Banner -->
+    <div id="welcomeBanner" class="welcome-banner">
+        <span>👋 Welcome, <span id="adminName">Admin</span>! Let's manage the dashboard efficiently.</span>
+        <br>
+        <small class="text-light">Stay updated, review new applications, and make informed decisions.</small>
+        <span class="close-btn" onclick="closeBanner()">&times;</span>
+    </div>
+
+    <nav class="navbar navbar-dark navbar-custom">
+        <div class="container-fluid d-flex justify-content-between">
+            <input type="text" class="form-control w-25" placeholder="Search">
+            <span class="text-white">Tuesday, 18 July</span>
+            <div>
+                <i class="bi bi-chat text-white mx-2"></i>
+                <i class="bi bi-bell text-white"></i>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="profile-card d-flex align-items-center p-3">
+            <img src="" alt="Profile Picture" class="profile-img" id="profile-img">
+            <div class="ms-3">
+                <h5 class="mb-0"><span id="FirstName">Natashia Khaleira</span></h5>
+                <p class="text-muted mb-0"><span id="role">Admin</span></p>
+                <p class="small"><i class="bi bi-geo-alt"></i><span id="adminJoinDate"></span></p>
+            </div>
+        </div>
+        <div class="info-card mt-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h6 class="fw-bold  text-success">Personal Information</h6>
+                <button class="edit-btn" id="edit"><i class="bi bi-pencil"></i> Edit</button>
+            </div>
+            <hr style="border: 2px green solid " />
+            <div class="row mt-3">
+                <div class="col-md-6"><p class="text-muted mb-1">First Name</p><p class="fw-bold"><span id="FirstName1">Natashia</span></p></div>
+                <div class="col-md-6"><p class="text-muted mb-1">Last Name</p><p class="fw-bold"><span id="LastName">Khaleira</span></p></div>
+                <div class="col-md-6"><p class="text-muted mb-1">Email Address</p><p class="fw-bold"><span id="Email">binary-fusion.com</span></p></div>
+                <div class="col-md-6"><p class="text-muted mb-1">Phone Number</p><p class="fw-bold"><span id="Phone">(+62) 821 2554-5846</span></p></div>
+                <div class="col-md-6"><p class="text-muted mb-1">Date of Birth</p><p class="fw-bold"><span id="DOB">12-10-1990</span></p></div>
+                <div class="col-md-6"><p class="text-muted mb-1">User Role</p><p class="fw-bold"><span id="role">Admin</span></p></div>
+            </div>
+        </div>
+    </div>
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProfileForm">
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email">
+                            <span class="valid-feedback">&#10004;</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password">
+                            <span class="valid-feedback">&#10004;</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">DOB</label>
+                            <input type="date" class="form-control" id="dob">
+                            <span class="valid-feedback">&#10004;</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Image</label>
+                            <input type="file" class="form-control" id="image">
+                            <span class="valid-feedback">&#10004;</span>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-warning" id="saveChanges">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <hr />
+
+
+    <!-- Cards Section -->
+    <div class="container mt-4">
+        <div class="row row-cols-1 row-cols-md-4 g-3">
+            <!-- Database Manager -->
+            <div class="col">
+                <div class="card text-center shadow-sm p-2">
+                    <div class="card-body">
+                        <i class="bi bi-database fs-3 text-primary"></i>
+                        <h6 class="card-title mt-2">Database Manager</h6>
+                        <a href="/Admin/DatabaseManager" class="btn btn-sm btn-primary">Manage</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATS -->
+            <div class="col">
+                <div class="card text-center shadow-sm p-2">
+                    <div class="card-body">
+                        <i class="bi bi-list-check fs-3 text-success"></i>
+                        <h6 class="card-title mt-2">ATS System</h6>
+                        <a href="/Admin/ApplicationReview" class="btn btn-sm btn-success">Track</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interview Manager -->
+            <div class="col">
+                <div class="card text-center shadow-sm p-2">
+                    <div class="card-body">
+                        <i class="bi bi-calendar-check fs-3 text-warning"></i>
+                        <h6 class="card-title mt-2">Interviews</h6>
+                        <a href="/Admin/InterviewManager" class="btn btn-sm btn-warning">Schedule</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Posting -->
+            <div class="col">
+                <div class="card text-center shadow-sm p-2">
+                    <div class="card-body">
+                        <i class="bi bi-briefcase-fill fs-3 text-danger"></i>
+                        <h6 class="card-title mt-2">Job Posting</h6>
+                        <a href="/Admin/JobPostings" class="btn btn-sm btn-danger">Post</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- OR jQuery CDN (jQuery Official) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Auto-hide the banner after 5 seconds
+            setTimeout(function () {
+                $("#welcomeBanner").fadeOut(500); // Fades out smoothly
+            }, 1000);
+        });
+
+        // Function to manually close the banner
+        function closeBanner() {
+            $("#welcomeBanner").fadeOut(1000);
+
+        }
+    </script>
+    <script src="~/ProjectJS/Admin.js/Index.js"></script>
+</body>
+</html>

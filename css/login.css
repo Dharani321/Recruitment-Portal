@@ -1,0 +1,93 @@
+﻿body {
+    /*            background: linear-gradient(to right, #6a11cb, #2575fc);*/
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.text-center h3 {
+    text-align: center
+}
+
+.container1 {
+    margin: auto;
+    max-width: 500px;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 100px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.form_element label {
+    font-weight: bold;
+}
+
+.form_element input {
+    margin-bottom: 15px;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    width: 100%;
+}
+
+    .form_element input:focus {
+        border-color: #6a11cb;
+        outline: none;
+        box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+    }
+
+.button_pos {
+    text-align: center;
+    margin: auto;
+}
+
+    .button_pos button {
+        /*            text-align:center;
+            margin:auto;*/
+        width: 50%;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #6a11cb;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+        .button_pos button:hover {
+            width: 100%;
+            background-color: #5a0fba;
+            cursor: pointer;
+        }
+
+.sign_up {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .sign_up h6 {
+        font-size: 14px;
+        font-weight: normal;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .sign_up button {
+        padding: 8px 20px;
+        border-radius: 5px;
+        background-color: #28a745; /* Green button for sign-up */
+        border: none;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+        .sign_up button:hover {
+            background-color: #218838;
+            cursor: pointer;
+        }
+
+#email{
+    margin-left:1.5rem;
+}

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="~/Styles/user/login.css" />
+
+
+</head>
+<body>
+    <div class="container1">
+        <div class="text-center mb-4">
+            <h3>User Login</h3>
+        </div>
+        <form>
+            <div class="form_input_container">
+                <div class="form_input">
+                    <label for="email">Email:</label>
+                    <label for="password">Password:</label>
+                    <label for="loginType">Login Type:</label> 
+                </div>
+                <div class="form_input">
+                    <input type="email" id="email" name="email" placeholder="Enter your email" />
+                    <input type="password" id="password" name="password" placeholder="Enter your password" />
+                    <select id="loginType" name="loginType">
+                        <option value="user" name="loginType1">User</option>
+                        <option value="admin" name="loginType1">Admin</option>
+                    </select>
+                </div>
+            </div>
+            <div class="button_pos">
+                <button type="submit" id="login">Login</button>
+            </div>
+            <div class="sign_up">
+                <h6>Don't Have any Account</h6>
+                <button type="submit" id="signup">Sign Up</button>
+            </div>
+        </form>
+    </div>
+
+    <!--<div class="table_container">
+        <table id="e_table" border="1" cellspacing="0" class="display" style="color:black">
+            <thead>
+                <tr style="background-color:grey">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>-->
+    @*<th>Password</th>*@
+    <!--<th>Phone</th>
+                    <th>DOB</th>
+                    <th>Address</th>
+                    <th>Country</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+   
+    <script src="~/ProjectJS/user_js/JS/common_login.js"></script>     
+
+
+
+</body>
+</html>
+
+
+
+

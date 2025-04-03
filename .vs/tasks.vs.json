@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-Recruitment_Portal",
+      "appliesTo": "Recruitment_Portal.sln",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "task-Recruitment_Portal",
+      "appliesTo": "Recruitment_Portal.sln",
+      "type": "launch"
+    }
+  ]
+}

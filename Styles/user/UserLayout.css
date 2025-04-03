@@ -1,0 +1,134 @@
+﻿.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #343a40;
+    color: white;
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    transition: all 0.3s;
+}
+
+    .sidebar ul {
+        padding: 0;
+        list-style: none;
+    }
+
+        .sidebar ul li {
+            padding: 10px;
+        }
+
+            .sidebar ul li a {
+                color: white;
+                text-decoration: none;
+                display: block;
+            }
+
+                .sidebar ul li a:hover {
+                    background: #495057;
+                }
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: all 0.3s;
+    width: calc(100% - 250px);
+}
+
+#toggle-sidebar {
+    position: fixed;
+    top: 15px;
+    left: 260px;
+    z-index: 1000;
+    transition: left 0.3s;
+}
+
+.sidebar.closed {
+    left: -250px;
+}
+
+.closed {
+    left: -250px;
+}
+
+.main-content.full {
+    margin-left: 0;
+    width: 100%;
+}
+
+#toggle-sidebar.closed {
+    left: 10px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        left: -250px;
+        z-index:1000;
+    }
+
+        .sidebar.open {
+            left: 0;
+        }
+        .open {
+            left: 0;
+        }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #toggle-sidebar {
+        left: 10px;
+    }
+}
+
+
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: -250px; /* Hide by default */
+    top: 0;
+    background: #333;
+    transition: left 0.3s ease-in-out;
+}
+
+    .sidebar.active {
+        left: 0; /* Show when active */
+    }
+
+#toggle-sidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: -250px; /* Hide by default */
+    top: 0;
+    background: #333;
+    transition: left 0.3s ease-in-out;
+}
+
+    .sidebar.active {
+        left: 0; /* Show when active */
+    }
+
+#toggle-sidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}

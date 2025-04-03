@@ -1,0 +1,248 @@
+﻿/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3, h4 {
+    color: #003366;
+}
+
+p {
+    color: #666;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Main Styles */
+main {
+    padding: 20px;
+}
+
+/* Job Search Form Styles */
+#jobsearch {
+    background-color: #e6f2ff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    #jobsearch .css-b7sqy0 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #jobsearch .css-1uoj1e2,
+    #jobsearch .css-164w3g1 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #jobsearch input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #99c2ff;
+        border-radius: 4px;
+    }
+
+    #jobsearch .yosegi-InlineWhatWhere-primaryButton {
+        background-color: #0073e6;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        #jobsearch .yosegi-InlineWhatWhere-primaryButton:hover {
+            background-color: #005bb5;
+        }
+
+/* Job Section Styles */
+.job-section {
+    margin-top: 40px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-list-container, .job-details-container {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #cce0ff;
+    border-radius: 8px;
+    background-color: #f7fbff;
+}
+
+    .job-list-container h4, .job-details-container h4 {
+        border-bottom: 2px solid #0073e6;
+        padding-bottom: 5px;
+    }
+
+.job-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.job-description {
+    padding-top: 10px;
+}
+
+/* Navigation Styles */
+.text-center {
+    margin-top: 20px;
+}
+
+.btn-secondary {
+    background-color: #005bb5;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .btn-secondary:hover {
+        background-color: #003366;
+    }
+
+
+
+/* About Section */
+/* About Section - Initially Hidden */
+#about-section {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    width: 80%;
+    margin: 50px auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+    /* Make it visible when scrolled */
+    #about-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    #about-section {
+        width: 95%;
+        padding: 30px;
+    }
+}
+
+
+    /* Make it visible when scrolled */
+    #about-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Heading Styling */
+    #about-section h2 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+/* Features & Mission Styling */
+.features, .mission, .contact-info {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    color: #333;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* List Styling */
+#about-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+    #about-section ul li {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+/* For cards in index page */
+.card-container {
+   margin-top:70px;
+    display: flex;
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+    gap: 30px; /* Adds spacing between cards */
+    justify-content: space-evenly; /* Equal spacing between cards */
+}
+
+    .card-container > div {
+        flex: 0 0 calc(50% - 15px); /* Ensures two cards per row with spacing */
+        display: flex;
+        justify-content: center; /* Centers the card */
+    }
+
+.card {
+    width: 18rem; /* Consistent card width */
+}
+
+/* Responsive: Make 1 card per row on small screens */
+@media (max-width: 768px) {
+    .card-container > div {
+        flex: 0 0 100%; /* Full width on smaller screens */
+    }
+}
+
+
+/* Sticky Profile Section */
+.admin-profile {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #f8f9fa;
+    padding: 15px;
+}
+
+/* Ensuring Cards Fit Without Scrolling */
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    flex: 1 1 calc(25% - 20px); /* Ensures 4 cards fit in a row */
+    min-width: 250px;
+    max-width: 300px;
+}
+
+@media (max-width: 992px) {
+    .card {
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row on smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        flex: 1 1 100%; /* 1 card per row on mobile */
+    }
+}

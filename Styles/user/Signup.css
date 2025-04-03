@@ -1,0 +1,133 @@
+﻿/*body {
+    font-family: 'Roboto', sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container1 {
+    background-color: #ffffff;
+    width: 60%;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 10px;
+    color: #333;
+}
+
+    .container1 h2 {
+        margin-bottom: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        font-size: 24px;
+    }*/
+
+/* Form Grid */
+/*.form_grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form_element {
+    flex: 1;
+    min-width: 300px;
+}
+
+    .form_element label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #444;
+    }
+
+    .form_element input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+        .form_element input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }*/
+
+/* File Upload */
+/*#image_preview img {
+    max-width: 120px;
+    margin-top: 10px;
+    border-radius: 5px;
+}*/
+
+/* Button Styling */
+/*.button_pos {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .button_pos button {
+        padding: 12px 30px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        background: #007bff;
+        border: none;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        .button_pos button:hover {
+            background: #0056b3;
+        }*/
+
+/* Signup/Login Section */
+/*.sign_up {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .sign_up h6 {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    .sign_up button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #28a745;
+        border: none;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        .sign_up button:hover {
+            background-color: #218838;
+        }*/
+
+/* Social Login */
+/*.social_login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .social_login img {
+        width: 20px;
+        height: 20px;
+    }*/

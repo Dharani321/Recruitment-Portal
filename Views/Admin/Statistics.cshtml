@@ -1,0 +1,363 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment Portal - Admin Dashboard</title>
+
+    <!-- Bootstrap & Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- FullCalendar.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/main.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/main.min.js"></script>
+
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <style>
+        body {
+            background-color: #f4f7f6;
+        }
+
+        .dashboard-header {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        .charts-section{
+           gap:10px;
+        }
+        .dashboard-container {
+            padding: 15px;
+        }
+
+        .stat-card {
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .icon-lg {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .calendar-container {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+            margin :auto;
+        }
+
+/*        .charts-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+        }*/
+
+        .calendar-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-top: 8px;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 180px !important; /* Reduced chart height */
+        }
+
+        .stat-card {
+            border-radius: 6px;
+            padding: 8px; /* Reduced padding */
+            text-align: center;
+            color: white;
+            font-size: 0.8rem; /* Reduced font size */
+            width:80%;
+        }
+
+        .icon-lg {
+            font-size: 1.2rem; /* Reduced icon size */
+            margin-bottom: 3px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px; /* Reduced gap between cards */
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container dashboard-container">
+
+        <!-- Dashboard Header -->
+        <div class="dashboard-header mb-2">
+            <h3>📊 Recruitment Dashboard</h3>
+        </div>
+
+        <!-- Statistics Cards Section -->
+        <div class="dashboard-grid">
+            <div class="stat-card bg-primary" id="total_candidate">
+                <i class="fas fa-users icon-lg"></i>
+                <h6>Total Candidates</h6>
+                <h5 id="totalCandidates">0</h5>
+            </div>
+
+            <!-- User Details Modal -->
+            <!-- User Details Modal -->
+            <div class="modal fade" id="userDetailsModal" tabindex="-1" aria-labelledby="userDetailsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content shadow-lg rounded-4">
+                        <!-- Modal Header -->
+                        <div class="modal-header bg-primary text-white text-center">
+                            <h5 class="modal-title fw-bold w-100">
+                                <i class="fas fa-users"></i> User Details
+                            </h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <!-- Modal Body -->
+                        <div class="modal-body p-4">
+                            <!-- Search Bar (Right Aligned) -->
+                            
+
+                            <div class="table-responsive position-relative" style="max-height: 400px; overflow-y: auto;">
+                                <table id="userTable" class="table table-hover table-bordered text-center align-middle">
+                                    <!-- Table Header -->
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th><i class="fas fa-user"></i> First Name</th>
+                                            <th><i class="fas fa-user"></i> Last Name</th>
+                                            <th><i class="fas fa-map-marker-alt"></i> Location</th>
+                                            <th><i class="fas fa-cog"></i> Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="user-details-body">
+                                        <!-- User details will be injected dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Loading Spinner -->
+                            <div id="loadingSpinner" class="text-center mt-3" style="display: none;">
+                                <i class="fas fa-spinner fa-spin fa-2x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Edit User Modal -->
+            <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title" id="editUserModalLabel">
+                                <i class="fas fa-user-edit"></i> Edit Candidate
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editUserForm">
+                                <input type="hidden" id="editUserId">
+
+                                <div class="mb-3">
+                                    <label for="editFirstName" class="form-label"><i class="fas fa-user"></i> First Name</label>
+                                    <input type="text" class="form-control" id="editFirstName" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="editLastName" class="form-label"><i class="fas fa-user"></i> Last Name</label>
+                                    <input type="text" class="form-control" id="editLastName" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="editLocation" class="form-label"><i class="fas fa-map-marker-alt"></i> Location</label>
+                                    <input type="text" class="form-control" id="editLocation" required>
+                                </div>
+
+                                <div class="text-end">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        <i class="fas fa-times"></i> Cancel
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-save"></i> Save Changes
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card bg-success" id="active_jobs">
+                <i class="fas fa-briefcase icon-lg"></i>
+                <h6>Active Jobs</h6>
+                <h5 id="activeJobs">0</h5>
+            </div>
+
+
+            <!-- Job Details Modal -->
+            <div class="modal fade" id="jobDetailsModal" tabindex="-1" aria-labelledby="jobDetailsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="jobDetailsLabel">Active Job Postings</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Job Title</th>
+                                        <th>Company Name</th>
+                                        <th>Location</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody id="job-details-body">
+                                    <!-- Jobs will be inserted here dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card bg-warning" id="Interview_schedule">
+                <i class="fas fa-calendar-check icon-lg"></i>
+                <h6>Interviews Scheduled</h6>
+                <h5 id="interviewsScheduled">0</h5>
+            </div>
+
+            <!-- Interview Schedule Modal -->
+            <div class="modal fade" id="interviewDetailsModal" tabindex="-1" aria-labelledby="interviewDetailsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="interviewDetailsLabel">Scheduled Interviews</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Candidate Name</th>
+                                        <th>Job Title</th>
+                                        <th>Interview Date</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody id="interview-details-body">
+                                    <!-- Interview schedule will be inserted here dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card bg-info" id="hired_candidate">
+                <i class="fas fa-user-check icon-lg"></i>
+                <h6>Hired Candidates</h6>
+                <h5 id="hiredCandidates">0</h5>
+            </div>
+        </div>
+        <!-- Hired Candidates Modal -->
+        <div class="modal fade" id="hiredCandidatesModal" tabindex="-1" aria-labelledby="hiredCandidatesLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="hiredCandidatesLabel">Hired Candidates</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Candidate Name</th>
+                                    <th>Job Title</th>
+                                    @*<th>Company</th>
+                                        <th>Hired Date</th>*@
+                                </tr>
+                            </thead>
+                            <tbody id="hired-candidates-body">
+                                <!-- Hired candidate details will be inserted here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display:flex">
+            <div style="display:flex;flex-direction:column">
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <div class="chart-container">
+                        <h6 class="text-center fw-bold">📈 Monthly Registrations</h6>
+                        <canvas id="registrationsChart"></canvas>
+                    </div>
+                    <div></div>
+                    <div class="chart-container" style="width: 100%; height: 280px;">
+                        <h6 class="text-center fw-bold">📊 Recruitment Overview</h6>
+                        <canvas id="recruitmentOverviewChart" style="width: 100%; height: 250px;"></canvas>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Calendar Section -->
+            <div class="calendar-section calendar-container w-100">
+                <div class="calendar-container">
+                    <h6 class="fw-bold text-center mb-2">📅 Monthly Recruitment Trends</h6>
+                    <div id="calendar_chart" style="height: 300px;"></div> <!-- Reduced height -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap & jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="~/ProjectJS/Admin.js/Statics.js"></script>
+    <!-- Include Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</body>
+</html>

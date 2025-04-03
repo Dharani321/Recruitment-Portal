@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "AdminSignup";
+}
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="~/ProjectJS/Admin.js/AdminSignup.js"></script>
+<link href="~/Styles/Admin/AdminSignup.css" rel="stylesheet" />
+
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="form-container p-4 shadow-lg rounded bg-white" style="max-width: 600px;">
+        <h2 class="text-center mb-4 text-dark fw-semibold">Administrator Signup</h2>
+
+        <form autocomplete="on">
+            <div class="text-center">
+                <img id="imagePreview" src="#" style="display: block; width: 90px; height: 100px; object-fit: cover; border-radius: 50%; border: 2px solid #ddd; margin: 0 auto 20px;" />
+            </div>
+
+            <div class="mb-3">
+                <label for="FirstName" class="form-label"><strong>First Name</strong></label>
+                <input type="text" id="FirstName" name="FirstName" class="form-control" placeholder="(Admin’s first name)" required />
+                <span id="FirstNameError" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="LastName" class="form-label"><strong>Last Name</strong></label>
+                <input type="text" id="LastName" name="LastName" class="form-control" placeholder="(Admin’s last name)" required />
+                <span id="LastNameError" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="Email" class="form-label"><strong>Email</strong></label>
+                <input type="email" id="Email" name="Email" class="form-control" placeholder="(Give your Email)" required />
+                <span id="EmailError" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="Password" class="form-label"><strong>Password</strong></label>
+                <input type="password" id="Password" name="Password" class="form-control" placeholder="(Give a Password)" required />
+                <span id="PasswordError" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="DateOfBirth" class="form-label"><strong>Date of Birth</strong></label>
+                <input type="date" id="DateOfBirth" name="DateOfBirth" class="form-control" required />
+                <span id="DateOfBirthError" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="RoleType" class="form-label"><strong>Role Type</strong></label>
+                <input type="text" id="RoleType" name="RoleType" class="form-control" placeholder="(Admin's role or level)" required />
+                <span id="RoleTypeError" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="imageUpload" class="form-label"><strong>Upload Image</strong></label>
+                <input type="file" id="imageUpload" class="form-control" accept="image/*">
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" id="btnsignup" class="btn btn-success w-100">Signup</button>
+                <p style="font-size: 14px;"> <button type="button" id="btn_ClearSignup">Clear </button> Form</p> 
+            </div>
+
+            <div class="text-center mt-4">
+                <p class="mb-2">Already have an account?</p>
+                <a href="@Url.Action("AdminLogin", "Admin")" class="btn btn-outline-primary">Login Here</a>
+            </div>
+
+        </form>
+    </div>
+</div>

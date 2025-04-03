@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Admin Settings";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/js/Admin/Settings.js"></script>
+<link href="~/css/Admin/Settings.css" rel="stylesheet" />
+
+<div class="settings-panel">
+    <div class="settings-header text-center">
+        <h2>Admin Settings</h2>
+        <p>Update your account details below</p>
+    </div>
+
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4 rounded" style="max-width: 500px; margin: auto;">
+            <h3 class="text-center mb-4">Admin Profile</h3>
+
+            <form id="updateAdminForm" method="post" enctype="multipart/form-data">
+                <div class="text-center">
+                    <img id="imagePreview" src="" alt="Profile Picture Preview" class="rounded-circle shadow-sm mb-3"
+                         style="display: none; width: 120px; height: 120px; object-fit: cover; border: 3px solid #007bff;">
+                </div>
+
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="FirstName" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="LastName" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="Email" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="profilePicture" class="form-label">Profile Picture</label>
+                    <input type="file" class="form-control" id="profilePicture" name="ProfilePicture" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" name="Password" />
+                        <button type="button" class="btn btn-outline-secondary" onclick="togglePassword()">👁</button>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" id="btnSaveChanges" class="btn btn-primary w-100 shadow-sm">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,35 @@
+﻿/* Styling for the top banner */
+.welcome-banner {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    background: linear-gradient(to right, #007bff, #6a11cb, #b721ff);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1050;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+    /* Close button style */
+    .welcome-banner .close-btn {
+        position: absolute;
+        top: 8px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+        opacity: 0.8;
+    }
+
+        .welcome-banner .close-btn:hover {
+            opacity: 1;
+        }

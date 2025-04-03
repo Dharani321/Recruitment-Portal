@@ -1,0 +1,79 @@
+﻿/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0px;
+}
+
+h1 {
+    margin-top: 40px;
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* Job Detail Card */
+.job-detail-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+    .job-detail-card h2 {
+        margin: 0;
+        color: #2c3e50;
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .job-detail-card p {
+        color: #7f8c8d;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+        .job-detail-card p strong {
+            color: #34495e;
+        }
+
+/* Buttons Section */
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .buttons button {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+.apply-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+    .apply-btn:hover {
+        background-color: #2980b9;
+    }
+
+.back-btn {
+    background-color: #95a5a6;
+    color: white;
+}
+
+    .back-btn:hover {
+        background-color: #7f8c8d;
+    }
+
+/* Responsive Design */

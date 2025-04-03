@@ -1,0 +1,112 @@
+﻿body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #ffffff); /* Light blue to white gradient */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Use a darker font color for better contrast */
+}
+
+.container1 {
+    width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+    .container1 h2 {
+        /* Slightly larger for a modern feel */
+        /*font-weight: 800;*/ /* Extra bold for emphasis */
+    }
+
+
+
+.form_element {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+    .form_element label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    .form_element input,
+    .form_element select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+        .form_element input:focus,
+        .form_element select:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+            outline: none;
+        }
+
+#image_preview img {
+    max-width: 100px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.button_pos {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .button_pos button {
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        border: none;
+        color: white;
+        transition: all 0.3s ease;
+    }
+
+        .button_pos button:hover {
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+.sign_up {
+    margin-top: 20px;
+    text-align: center;
+}
+
+    .sign_up h6 {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    .sign_up button {
+        padding: 10px 20px;
+        border-radius: 8px;
+        background-color: #28a745;
+        border: none;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+        .sign_up button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+form {
+    width: 100%;
+    margin: auto;
+}

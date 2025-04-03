@@ -1,0 +1,336 @@
+﻿/* Button */
+/*.custom-btn {
+    margin-top: 20px;
+    background: #FACC15;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1E3A8A;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(255, 223, 0, 0.3);
+    transition: 0.3s;
+}
+
+    .custom-btn:hover {
+        background: #FBBF24;
+        box-shadow: 0px 6px 15px rgba(255, 223, 0, 0.5);
+    }*/
+
+/* Signup and Login dropdown */
+.glow-effect {
+    color: white !important;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+    .glow-effect:hover {
+        color: white !important;
+        text-shadow: 0px 0px 12px rgba(255, 255, 255, 1);
+        background-color: transparent !important;
+    }
+
+.dropdown-fix {
+    z-index: 2000 !important;
+    position: absolute !important;
+    display: block;
+}
+
+.dropdown-menu {
+    z-index: 2000 !important;
+    position: absolute !important;
+    background-color: #1E3A8A !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-item {
+    color: white !important;
+    z-index: 2000 !important;
+}
+
+    .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+
+/* Hover Shadow */
+.navbar-nav .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+    .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -3px;
+        width: 0;
+        height: 2px;
+        background-color: white;
+        box-shadow: 0 0 5px white;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 100%;
+    }
+
+/* Back Arrow Styling */
+.back-arrow {
+    color: white;
+    font-size: 24px;
+    margin-right: 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+}
+
+    .back-arrow:hover {
+        color: #00bfff; /* Light blue on hover */
+        transform: scale(1.1);
+    }
+
+/* For Login Modal*/
+
+/* Modal Background Styling */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5)!important;
+}
+
+/* Modal Container */
+.modal-content {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Header */
+.modal-header {
+    background: #007bff;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-title {
+    font-weight: 500;
+}
+
+/* Close Button */
+.modal-header .btn-close {
+    color: white;
+    opacity: 1;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 20px;
+}
+
+    /* Form Styling */
+    .modal-body form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-body label {
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    .modal-body input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+        .modal-body input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.3);
+        }
+
+/* Submit Button */
+.modal-footer .btn-primary {
+    background: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+    .modal-footer .btn-primary:hover {
+        background: #0056b3;
+    }
+
+/* Responsive */
+@media (max-width: 576px) {
+    .modal-content {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.loginEmail {
+    margin-left: 5px;
+}
+
+.loginPassword {
+    margin-left: 145px;
+}
+
+
+
+
+/* Signup Modal */ 
+.SignupModal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: modalPop 0.3s ease-out;
+}
+
+.SignupModal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.SignupModal-title {
+    font-weight: 600;
+}
+
+.SignupModal-footer {
+    border-top: 1px solid #dee2e6;
+}
+
+.SignupForm-label {
+    font-weight: 600;
+}
+
+.SignupForm-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+}
+
+    .SignupForm-control:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    }
+
+#SignupImagePreview {
+    display: block;
+    width: 90px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    margin: 0 auto 20px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    transition: all 0.3s ease-in-out;
+}
+
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+        transform: scale(1.05);
+    }
+
+
+@keyframes modalPop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+ Prevent Modal from Pushing Footer 
+.modal-dialog {
+    margin: 0 auto;
+    position: relative;
+}
+
+
+/* Footer Section */
+.custom-footer {
+    background: rgba(10, 25, 80, 0.9); /* Darkest Blue with transparency */
+    backdrop-filter: blur(8px); /* Glossy effect */
+    color: white;
+    padding: 40px 0;
+    position: relative;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+    .footer-links li {
+        margin-bottom: 8px;
+    }
+
+    .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+        .footer-links a:hover {
+            color: #00bfff;
+        }
+
+.social-icons a {
+    display: inline-block;
+    color: white;
+    font-size: 20px;
+    margin-right: 15px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+    .social-icons a:hover {
+        transform: scale(1.1);
+        color: #00bfff;
+    }
+
+hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+}
+
+.text-center {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+
+
+
+.blur-effect {
+    filter: blur(5px);
+    pointer-events: none; /* Prevents interaction with blurred elements */
+    user-select: none; /* Prevents text selection */
+}

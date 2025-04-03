@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment Portal</title>
+
+    <!--JQuerry-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <!-- Include Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+
+    <!-- Bootstrap & Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/Styles/Layout.css" rel="stylesheet" />
+    <!-- Custom JS -->
+    <script src="~/ProjectJS/user_js/JS/User_Signup_view.js"></script>
+    <script src="~/ProjectJS/Shared/_Layout.js"></script>
+    <script src="~/ProjectJS/user_js/JS/login.js"></script>
+
+    <!-- Tom Select -->
+    <!-- TomSelect CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+    <!-- TomSelect JS -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select"></script>
+
+
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+</head>
+
+<body class="layout-body">
+
+    @if (User.Identity.IsAuthenticated)
+    {
+
+        <!-- Navbar 1 -- user -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar1" style="z-index:1000">
+            <div class="container">
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")" id="Layout_Home">Recruitify</a>
+
+                <div class="d-none d-lg-flex ms-auto">
+                    <a class="nav-link me-3" href="/user/user_dashboard">Home</a>
+                    <a class="nav-link me-3" href="/user/CompanyReviews">Company Reviews</a>
+                    <a class="nav-link me-3" href="@Url.Action("SalaryGuide", "Home")">Salary Guide</a>
+                </div>
+
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="Layout_Toggle1">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <p class="nav-link me-3 SwitchAccount">Switch Account</p>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-3" href="#">
+                                <i class="bi bi-envelope Message"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-3" href="#">
+                                <i class="bi bi-bell Notification"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item profile-container userProfileImageContainer">
+                            <a class="nav-link me-3" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                <img id="userProfileImage" src="profile.jpg" alt="Profile" class="rounded-circle profile-btn" width="30" height="30">
+                            </a>
+                            <!-- Profile Dropdown -->
+                            <div class="profile-dropdown">
+                                <ul>
+                                    <li class="list-group-item">
+                                        <a href="/user/Profile">
+                                            <i class="bi bi-person me-2"></i> Profile
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="/user/MyJobs">
+                                            <i class="bi bi-briefcase me-2"></i> My Jobs
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="/user/MyReviews">
+                                            <i class="bi bi-star me-2"></i> My Reviews
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="/user/Help">
+                                            <i class="bi bi-question-circle me-2"></i> Help
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="/user/PrivacyCenter">
+                                            <i class="bi bi-shield-lock me-2"></i> Privacy Center
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="/user/Settings">
+                                            <i class="bi bi-gear me-2"></i> Settings
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <!-- Footer Section -->
+                                <div style="text-align: center; margin-top: 20px; font-size: 14px; color: gray;">
+                                    © 2025 Recruitify. All rights reserved. |
+                                    <a href="#" style="color: gray; text-decoration: none; transition: 0.3s;"
+                                       onmouseover="this.style.textDecoration='underline'"
+                                       onmouseout="this.style.textDecoration='none'">
+                                        Terms & Conditions
+                                    </a> |
+                                    <a href="#" style="color: gray; text-decoration: none; transition: 0.3s;"
+                                       onmouseover="this.style.textDecoration='underline'"
+                                       onmouseout="this.style.textDecoration='none'">
+                                        Privacy Policy
+                                    </a>
+                                </div>
+
+
+
+                                <!-- Sign Out Section -->
+                                <div style="text-align: center; margin-top: 10px;">
+                                    <a href="/user/SignOut"
+                                       style="color: blue; font-size: 16px; font-weight: bold; text-decoration: none;
+                                       transition: all 0.3s ease; display: inline-block;"
+                                       onmouseover="this.style.textShadow='2px 2px 5px rgba(0, 0, 255, 0.5)'"
+                                       onmouseout="this.style.textShadow='none'">
+                                        Sign Out
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+    }
+
+    else if (!User.Identity.IsAuthenticated)
+    {
+        <!--Navbar 2 -- Guest -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar1" style="z-index:1000">
+            <div class="container">
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")" id="Layout_Home">Recruitify</a>
+
+                <!-- Top Right Links for Testimonials, About, Contact Us -->
+                <div class="d-none d-lg-flex ms-auto">
+                    <a class="nav-link me-3" href="@Url.Action("Testimonials", "Home")">Testimonials</a>
+                    <a class="nav-link" href="/#about-section">About Us</a>
+                    <a class="nav-link me-3" href="@Url.Action("Contact", "Home")">Contact Us</a>
+                    <a class="nav-link me-3" href="@Url.Action("SalaryGuide", "Home")">Salary Guide</a>
+                </div>
+
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="Layout_Toggle2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Signup Button & Login Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="btn btn-gradient dropdown-toggle me-3" href="#" id="authDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Signup | Login
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="authDropdown">
+                                <li><a class="dropdown-item" href="@Url.Action("Signup", "User")">Signup</a></li>
+                                <li>
+                                    <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#globalModal">
+                                        Login
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Employers Section -->
+                        <li class="nav-item">
+                            <a class="nav-link EmployersSection" href="@Url.Action("Employers", "Home")">Employers / Post Jobs</a>
+
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <nav class="navbar2">
+            <p class="navbar2_heading">
+                Unlock the future you deserve by exploring high-paying careers, competitive salaries, and top job openings tailored to your industry and location.
+            </p>
+            <div class="container mt-4" style="padding: 20px;">
+                <div class="row align-items-center justify-content-between" style="margin-bottom: 15px;">
+                    <!-- Left Section: Search Prompt -->
+                    <div class="col-md-4 mx-1 navbar_search">
+                        <div class="title-location-selection">
+                            <p class="title-location-selection__normTitle d-flex align-items-center">
+                                Find Jobs &#9654;
+                            </p>
+                            <div class="popup-box"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right Section: Search Bar -->
+                    <div class="col-md-7 SearchBar">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-md-end">
+                                <label for="location-search" class="form-label">Select a Location:</label>
+                            </div>
+                            <div class="col-md-8 Location_Search_Selection position-relative">
+                                <select id="location-search" multiple class="form-select" placeholder="Select a location -">
+                                    <optgroup label="Major Cities in India">
+                                        <option value="Bengaluru, Karnataka">Bengaluru, Karnataka</option>
+                                        <option value="Hyderabad, Telangana">Hyderabad, Telangana</option>
+                                        <option value="Delhi, NCR">Delhi, NCR</option>
+                                        <option value="Mumbai, Maharashtra">Mumbai, Maharashtra</option>
+                                        <option value="Chennai, Tamil Nadu">Chennai, Tamil Nadu</option>
+                                    </optgroup>
+                                </select>
+
+                                <div class="position-absolute end-0 top-50 translate-middle-y " style=" margin-right: -15px;">
+                                    <img src="~/wwwroot/CustomImages/Elements/search.png"
+                                         style="width: 20px; cursor: pointer;"
+                                         onclick="performSearch()" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+    }
+
+
+
+
+
+    <div class="container body-content">
+        <!-- ✅ Login Modal -->
+        <div class="modal fade" id="globalModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <span style="font-family: 'Poppins', sans-serif; font-weight: 700; color: white ; margin-left: 105px;letter-spacing: 15px">
+                                Recruitify
+                            </span>
+                        </h5>
+
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container1">
+                            <form>
+                                <div class="loginTerms" style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #555; text-align: center; line-height: 1.6; margin-top: 15px; padding: 10px 20px;">
+                                    <h2 style="font-size: 16px; font-weight: 600; color: #333; margin-bottom: 8px;">
+                                        Create an account or log in.
+                                    </h2>
+                                    <p style="font-size: 14px; font-weight: 400; color: #666; max-width: 600px; margin: 0 auto;">
+                                        By signing up or logging in, you acknowledge and agree to
+                                        <span style="color: #007bff; font-weight: 500; cursor: pointer;">Recruitify's Terms of Service</span>.
+                                        You also consent to our <span style="color: #007bff; font-weight: 500; cursor: pointer;">Privacy Policy</span>
+                                        and <span style="color: #007bff; font-weight: 500; cursor: pointer;">Cookie Policy</span>. You may receive important updates
+                                        and promotional messages from Recruitify, and you can opt out anytime by using the unsubscribe link in our emails or as outlined in our terms.
+                                    </p>
+                                </div>
+
+                                <div class="form_input_container">
+                                    <div class="form_input">
+                                        <label class="loginEmail" for="email"><strong>Email:</strong></label>
+                                        <label class="loginPassword" for="password"><strong>Password:</strong></label>
+                                    </div>
+                                    <div class="form_input">
+                                        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                                        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+                                    </div>
+                                </div>
+                                <div class="button_pos">
+                                    <button type="submit" id="login" class="btn btn-primary">Login</button>
+                                </div>
+                                <div class="sign_up text-center mt-3">
+                                    <h6>Don't Have an Account?</h6>
+                                    <a class="btn btn-link" href="/user/Signup">Sign Up</a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        @RenderBody()
+        <hr />
+        <footer style="z-index:1500">
+            <div class="footer-content">
+                <p>&copy; @DateTime.Now.Year - Recruitify</p>
+                <p>Contact No: +91 8013539905 / +91 7362982792</p>
+                <p>Location: 36 A & B Alipore Road, Kolkata - 700027 </p>
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://www.youtube.com" target="_blank" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank" class="social-icon linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank" class="social-icon facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/ProjectJS/Shared/_Layout.js"></script>
+</body>
+</html>

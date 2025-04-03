@@ -1,0 +1,208 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <style>
+        /* Full-screen background */
+        body {
+            background: linear-gradient(to right, #e3f2fd, #f8f9fa);
+            min-height: 100vh;
+           
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Full-height container */
+        .form-container {
+            width: 90%;
+            max-width: 900px;
+            height:auto; /* Makes it take most of the screen height */
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            padding:0.8rem;
+            border-radius: 12px;
+            padding-right:20px;
+            padding-left:20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+             /* Ensures scrolling if needed */
+        }
+
+        /* Styling for form title */
+        .form-title {
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+        }
+
+        .form-control, .form-select {
+            border-radius: 8px;
+        }
+
+        .btn-primary {
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+        }
+
+            .btn-primary:hover {
+                background-color: #0d6efd;
+                
+            }
+
+        .input-group-text {
+            background-color: #e3f2fd;
+            border: none;
+            border-radius: 8px 0 0 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <div class="form-container">
+            <h3 class="form-title"><i class="bi bi-briefcase-fill text-primary"></i> Post a Job</h3>
+
+            <form id="jobForm">
+                <div class="row g-3">
+                    <!-- Job Title -->
+                    <div class="col-md-6">
+                        <label for="title" class="form-label">Job Title</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-pencil"></i></span>
+                            <input type="text" id="title" class="form-control" placeholder="Enter job title" required>
+                        </div>
+                    </div>
+
+                    <!-- Company Name -->
+                    <div class="col-md-6">
+                        <label for="companyName" class="form-label">Company Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-buildings"></i></span>
+                            <input type="text" id="companyName" class="form-control" placeholder="Company name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-2">
+                    <!-- Location -->
+                    <div class="col-md-6">
+                        <label for="location" class="form-label">Location</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-geo-alt-fill"></i></span>
+                            <input type="text" id="location" class="form-control" placeholder="Job location" required>
+                        </div>
+                    </div>
+
+                    <!-- Job Type -->
+                    <div class="col-md-6">
+                        <label for="jobType" class="form-label">Job Type</label>
+                        <select id="jobType" class="form-select" required>
+                            <option value="" disabled selected>Select Job Type</option>
+                            <option value="Full-Time">Full-Time</option>
+                            <option value="Part-Time">Part-Time</option>
+                            <option value="Remote">Remote</option>
+                            <option value="Freelance">Freelance</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-2">
+                    <!-- Experience -->
+                    <div class="col-md-6">
+                        <label for="experience" class="form-label">Experience (Years)</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-bar-chart-line"></i></span>
+                            <input type="number" id="experience" class="form-control" placeholder="Years of experience" required>
+                        </div>
+                    </div>
+
+                    <!-- Salary -->
+                    <div class="col-md-6">
+                        <label for="salary" class="form-label">Salary Range</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-currency-rupee"></i></span>
+                            <input type="text" id="salary" class="form-control" placeholder="Ex: 10000 - 20000" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-2">
+                    <!-- End Date -->
+                    <div class="col-md-6">
+                        <label for="endDate" class="form-label">Application Deadline</label>
+                        <input type="date" id="endDate" class="form-control" required>
+                    </div>
+
+                    <!-- Job Category -->
+                    <div class="col-md-6">
+                        <label for="jobCategory" class="form-label">Job Category</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-tag"></i></span>
+                            <input type="text" id="jobCategory" class="form-control" placeholder="e.g., IT, HR, Marketing" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-2">
+                    <!-- Skills Required -->
+                    <div class="col-md-12">
+                        <label for="skills" class="form-label">Skills Required</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-tools"></i></span>
+                            <input type="text" id="skills" class="form-control" placeholder="e.g., JavaScript, Python, SEO" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-2">
+                    <!-- Job Description -->
+                    <div class="col-md-12">
+                        <label for="description" class="form-label">Job Description</label>
+                        <textarea id="description" class="form-control" rows="3" placeholder="Describe the job role and responsibilities..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-2">
+                    <!-- Additional Details -->
+                    <div class="col-md-12">
+                        <label for="details" class="form-label">Additional Details</label>
+                        <textarea id="details" class="form-control" rows="3" placeholder="Any additional information about the job..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                    <button id="submit" class="btn btn-primary btn-lg w-10">
+                        <i class="bi bi-upload"></i> Post Job
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap & jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/ProjectJS/Admin.js/Create.js"></script>
+</body>
+</html>

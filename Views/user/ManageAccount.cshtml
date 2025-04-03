@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+   
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Account</title>
+    <link rel="stylesheet" href="~/Styles/user/ManageAccount.css">
+</head>
+<body>
+    <h2>Manage Your Account</h2>
+    <div class="container12">
+
+
+        <form action="/User/UpdateAccount" method="post" enctype="multipart/form-data">
+            <!-- Personal Information Update -->
+            <div class="form-group1">
+                <label for="first-name">First Name</label>
+                <input type="text" name="FirstName" id="first-name" placeholder="Enter your first name" required />
+            </div>
+            <div class="form-group1">
+                <label for="last-name">Last Name</label>
+                <input type="text" name="LastName" id="last-name" placeholder="Enter your last name" required />
+            </div>
+            <div class="form-group1">
+                <label for="phone-number">Phone Number</label>
+                <input type="tel" name="PhoneNumber" id="phone-number" placeholder="Enter your phone number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number" />
+            </div>
+            <div class="form-group1">
+                <label for="email">Email</label>
+                <input type="email" name="Email" id="email" placeholder="Enter your email" required />
+            </div>
+
+            <div class="form-group1">
+                <label for="password">Password</label>
+                <input type="password" name="Password" id="password" placeholder="Enter new password (optional)" />
+            </div>
+
+            <!-- Update Profile Picture -->
+            <div class="form-group1">
+                <label for="profile">Update Profile Picture</label>
+                <input type="file" name="ProfilePicture" id="profile" class="file-input" accept=".jpg, .jpeg, .png, .gif" />
+                <small>Accepted formats: JPG, PNG, GIF</small>
+            </div>
+
+            <!-- Update Account Button -->
+            <div class="form-group1" style="text-align:center;margin:auto;width:100%">
+                <button type="submit" style="text-align:center;margin:auto">Update Account</button>
+            </div>
+        </form>
+
+        <!-- Back to Dashboard Link -->
+        <a href="/user/user_dashboard" class="back-btn">← Back to Dashboard</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/ProjectJS/user_js/JS/ManageAccount.js"></script>
+</body>
+</html>
